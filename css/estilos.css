@@ -1,3 +1,868 @@
+@charset "UTF-8";
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* Generales */
+body {
+  line-height: 1.5;
+  color: #555758;
+}
+body h1, body h2, body h3, body h4, body h5 {
+  margin: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+section {
+  position: relative;
+}
+
+.separador-superior {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.separador-superior::after {
+  /* Oculto en el móvil */
+  content: "";
+  display: none;
+  height: 0;
+  z-index: 0;
+  border-top: 70px solid #ee2630;
+  border-bottom: 70px solid transparent;
+  border-right: 50vw solid #ee2630;
+  border-left: 50vw solid transparent;
+}
+@media only screen and (min-width: 1100px) {
+  .separador-superior::after {
+    display: block;
+  }
+}
+.separador-inferior {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.separador-inferior::after {
+  /* Oculto en el móvil */
+  content: "";
+  display: none;
+  height: 0;
+  z-index: 0;
+  border-top: 70px solid transparent;
+  border-bottom: 70px solid #2e4da8;
+  border-right: 50vw solid transparent;
+  border-left: 50vw solid #2e4da8;
+}
+@media only screen and (min-width: 1100px) {
+  .separador-inferior::after {
+    display: block;
+  }
+}
+
+.row {
+  margin: 0 auto;
+  max-width: 1170px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.row .column {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row-full {
+  display: flex;
+  max-width: none;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-position: center center;
+  background-size: cover;
+}
+
+.img-contenedor {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.img-contenedor img {
+  width: 100%;
+  max-width: 90vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* redes-sociales */
+.redes-sociales i {
+  width: 37px;
+  height: 37px;
+  font-size: 18px;
+  display: inline-block;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  background: white;
+  padding: 7px 7px;
+  text-align: center;
+  line-height: 24px;
+}
+.redes-sociales i:last-child {
+  margin-right: 0;
+}
+.redes-sociales.circulo i {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 26px;
+}
+
+/* Botón */
+div.btn a.btn {
+  color: white;
+  background: #b2be1d;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: 0.5s;
+  text-decoration: none;
+  border: 1px solid #b2be1d;
+}
+div.btn a.btn:hover {
+  color: #b2be1d;
+  background: white;
+}
+
+/* menu-principal */
+header {
+  background: rgba(238, 38, 48, 0.6);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+.menu-contenedor {
+  max-width: 1170px;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+@media all and (min-width: 1100px) {
+  .menu-contenedor {
+    max-width: none;
+    width: 95vw;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .menu-contenedor {
+    justify-content: center;
+  }
+}
+.menu-contenedor input#menu-bar {
+  display: none;
+}
+.menu-contenedor input#menu-bar:checked ~ nav ul.top-menu {
+  transform: translate(0);
+}
+.menu-contenedor label {
+  display: block;
+  margin-left: auto;
+  cursor: pointer;
+  color: white;
+}
+@media only screen and (min-width: 1100px) {
+  .menu-contenedor label {
+    display: none;
+  }
+}
+.menu-contenedor span.logo {
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin-right: auto;
+}
+.menu-contenedor span.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.menu-contenedor nav {
+  z-index: 1;
+}
+.menu-contenedor ul.top-menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(238, 38, 48, 0.6);
+  padding: 20px;
+  height: calc(100vh - 80px);
+  transform: translate(100%);
+  transition: transform 0.5s linear;
+}
+@media only screen and (min-width: 1100px) {
+  .menu-contenedor ul.top-menu {
+    transform: translate(0);
+    position: static;
+    display: block;
+    background: none;
+    height: auto;
+  }
+}
+.menu-contenedor ul.top-menu li {
+  list-style: none;
+  display: inline-block;
+}
+.menu-contenedor ul.top-menu li:last-child a {
+  margin-right: 0;
+}
+.menu-contenedor ul.top-menu li a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 3px 0;
+  margin-right: 25px;
+  border-bottom: 6px solid transparent;
+}
+.menu-contenedor ul.top-menu li a:hover {
+  border-bottom: 6px solid #dda711;
+}
+
+/* Seleccion de pagina activa */
+body.inicio li.inicio a {
+  border-bottom: 6px solid #dda711;
+}
+
+body.acerca-de li.acerca-de a {
+  border-bottom: 6px solid #dda711;
+}
+
+body.lo-que-somos li.lo-que-somos a {
+  border-bottom: 6px solid #dda711;
+}
+
+body.historia li.historia a {
+  border-bottom: 6px solid #dda711;
+}
+
+body.contactanos li.contactanos a {
+  border-bottom: 6px solid #dda711;
+}
+
+body.oficinas li.oficinas a {
+  border-bottom: 6px solid #dda711;
+}
+
+/* ---------------- */
+/* PÁGINA INICIO */
+/* ---------------- */
+/* Sección Hero */
+body.inicio section.hero {
+  background: url("../img/Bauhaus_Final_2zu1.jpg");
+  background-position: -340px center;
+}
+@media all and (min-width: 1400px) {
+  body.inicio section.hero {
+    background-position: center center;
+  }
+}
+
+/* ---------------- */
+/* PÁGINA ACERCA DE */
+/* ---------------- */
+/* General */
+body.acerca-de {
+  background: url("../img/Bauatelier Gropius, Dessau, 1927-1928 -by Edmund Collein.jpg");
+  background-attachment: fixed;
+}
+
+body.acerca-de section {
+  margin-bottom: 300px;
+}
+body.acerca-de section:first-of-type {
+  margin-bottom: 0;
+}
+
+/* Sección Hero */
+body.acerca-de section.hero {
+  text-align: center;
+  position: relative;
+}
+body.acerca-de section.hero .row {
+  padding-bottom: 175px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+}
+@media only screnn and (min-width) {
+  body.acerca-de section.hero .row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+body.acerca-de section.hero .img-contenedor {
+  height: 250px;
+  width: auto;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+body.acerca-de section.hero .img-contenedor img {
+  object-fit: contain;
+  width: auto;
+}
+body.acerca-de section.hero .column {
+  width: 100%;
+  max-width: 500px;
+}
+@media only screen and (min-width: 981px) {
+  body.acerca-de section.hero .column {
+    width: 50%;
+  }
+}
+
+/* Sección Nuestra Universidad */
+section.nuestra-universidad .row {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.85);
+}
+@media all and (min-width: 981px) {
+  section.nuestra-universidad .row {
+    padding-left: 120px;
+    flex-direction: row;
+  }
+}
+section.nuestra-universidad .column:nth-child(1) {
+  width: 100%;
+}
+@media all and (min-width: 981px) {
+  section.nuestra-universidad .column:nth-child(1) {
+    width: 40%;
+    order: 2;
+    flex-direction: row;
+  }
+}
+section.nuestra-universidad .column:nth-child(2) {
+  text-align: center;
+}
+@media all and (min-width: 981px) {
+  section.nuestra-universidad .column:nth-child(2) {
+    text-align: left;
+  }
+}
+section.nuestra-universidad .img-contenedor {
+  width: 350px;
+  margin-left: 20px;
+}
+
+/* Sección Nuestro Equipo */
+section.equipo {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+}
+section.equipo .row {
+  max-width: 1170px;
+}
+section.equipo .row:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+}
+section.equipo .row:nth-child(2) .column {
+  width: auto;
+  height: calc(100vh - 80px);
+  flex-grow: 1;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+@media only screen and (min-width: 768px) {
+  section.equipo .row:nth-child(2) .column {
+    justify-content: center;
+    width: calc(50% - 10px);
+  }
+}
+@media only screen and (min-width: 1100px) {
+  section.equipo .row:nth-child(2) .column {
+    height: auto;
+    width: calc(20% - 10*3px);
+  }
+}
+section.equipo .row:nth-child(2) .column:last-child {
+  margin-right: 0;
+}
+section.equipo .row:nth-child(2) .column:nth-child(1) {
+  background: url("../img/pareja.jpg");
+  background-size: cover;
+  background-origin: center center;
+}
+section.equipo .row:nth-child(2) .column:nth-child(2) {
+  background: url("../img/hombre-1.jpg");
+  background-size: cover;
+  background-origin: center center;
+}
+section.equipo .row:nth-child(2) .column:nth-child(3) {
+  background: url("../img/mujer-1.jpg");
+  background-size: cover;
+  background-origin: center center;
+}
+section.equipo .row:nth-child(2) .column:nth-child(4) {
+  background: url("../img/hombre-2.jpg");
+  background-size: cover;
+  background-origin: center center;
+}
+section.equipo .row:nth-child(2) .column:nth-child(5) {
+  background: url("../img/mujer-2.jpg");
+  background-size: cover;
+  background-origin: center center;
+}
+section.equipo .row:nth-child(2) .column:hover .descripcion {
+  transform: translate(0, 0);
+}
+section.equipo .row:nth-child(2) .column .descripcion {
+  color: white;
+  transform: translate(0, 100%);
+  transition: all 0.5s linear;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(238, 38, 48, 0.5);
+}
+@media all and (min-width: 1100px) {
+  section.equipo .row:nth-child(2) .column .descripcion {
+    justify-content: space-between;
+  }
+}
+section.equipo .row:nth-child(2) .column .descripcion div.redes-sociales {
+  text-align: center;
+}
+section.equipo .row:nth-child(2) .column .descripcion div.redes-sociales i {
+  display: inline-block;
+  font-size: 16px;
+  padding: 6px 11px;
+  color: #ee2630;
+  border-radius: 50%;
+  background: white;
+}
+
+/* ---------------- */
+/* Sección lo que somos */
+/* ---------------- */
+/* Hero */
+body.lo-que-somos section.hero {
+  background-image: url("../img/Bauhaus-1.jpg");
+  position: relative;
+}
+body.lo-que-somos section.hero .row {
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+}
+@media only screnn and (min-width) {
+  body.lo-que-somos section.hero .row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+body.lo-que-somos section.hero .column {
+  width: 100%;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px;
+}
+@media only screen and (min-width: 981px) {
+  body.lo-que-somos section.hero .column {
+    justify-content: center;
+    width: 60%;
+  }
+}
+body.lo-que-somos section.hero .column.img-nuestra-historia {
+  display: none;
+  min-height: 40vh;
+  width: 100%;
+  background: url("../img/bauhaus-2.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+@media only screen and (min-width: 981px) {
+  body.lo-que-somos section.hero .column.img-nuestra-historia {
+    display: block;
+    width: 40%;
+  }
+}
+
+/* Lo que somos */
+section.lo-que-somos {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+section.lo-que-somos .row {
+  padding-top: 40px;
+  flex-direction: column;
+  padding: 0;
+}
+@media all and (min-width: 981px) {
+  section.lo-que-somos .row {
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-direction: row;
+  }
+}
+section.lo-que-somos .column {
+  padding: 30px;
+  width: 100%;
+}
+section.lo-que-somos .column.video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("../img/bauhaus-libro.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 40vh;
+}
+@media all and (min-width: 981px) {
+  section.lo-que-somos .column.video {
+    width: 60%;
+  }
+}
+section.lo-que-somos .column.video .video {
+  width: 90%;
+  margin: 0 auto;
+}
+@media all and (min-width: 768px) {
+  section.lo-que-somos .column.video .video {
+    width: 55%;
+  }
+}
+section.lo-que-somos .column.video .video iframe {
+  width: 100%;
+}
+@media all and (min-width: 981px) {
+  section.lo-que-somos .column.texto {
+    width: 40%;
+  }
+}
+
+/* ------------------- */
+/* Sección Contáctanos */
+/* ------------------- */
+/* Sección hero */
+.contactanos section.hero {
+  min-height: calc(100vh - 80px);
+  background: url("../img/bauhaus-libro.jpg");
+  background-position: center center;
+  background-size: cover;
+  padding-top: 80px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contactanos section.hero .row {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+}
+@media only screen and (min-width: 981px) {
+  .contactanos section.hero .row {
+    flex-wrap: nowrap;
+  }
+}
+.contactanos section.hero .column {
+  width: 100%;
+  padding-right: 40px;
+  /* mover texto a la derecha */
+  /* color y tamaño a todas las propiedas con .tipo-uno */
+  /* h1 */
+  /* parrafos */
+}
+@media only screen and (min-width: 981px) {
+  .contactanos section.hero .column {
+    width: 50%;
+  }
+}
+.contactanos section.hero .column:last-child {
+  padding-right: 0;
+}
+.contactanos section.hero .column .derecha {
+  text-align: right;
+}
+.contactanos section.hero .column .tipo-uno {
+  color: #555758;
+  font-size: 22px;
+  font-weight: lighter;
+}
+.contactanos section.hero .column h1.tipo-uno {
+  font-weight: normal;
+}
+.contactanos section.hero .column p.tipo-uno {
+  margin-bottom: 0;
+}
+.contactanos section.hero .column p.tipo-dos {
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+.contactanos section.hero .column p {
+  font-weight: normal;
+  font-size: 19px;
+}
+.contactanos section.hero form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.contactanos section.hero form > * {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 1em;
+  background: #555758;
+  border: 0;
+  color: white;
+}
+.contactanos section.hero form > *::placeholder {
+  color: white;
+}
+.contactanos section.hero form > *:last-child {
+  margin-bottom: 0;
+  padding: 0;
+  background: none;
+}
+.contactanos section.hero form div.btn {
+  text-align: right;
+}
+.contactanos section.hero form div.btn button {
+  background: #555758;
+  border: 0;
+  color: white;
+  padding: 0.6em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+/* --------------- */
+/* pagina oficinas */
+/* --------------- */
+/* section hero */
+.oficinas section.hero {
+  min-height: 100vh;
+  background: url("../img/Bauatelier Gropius, Dessau, 1927-1928 -by Edmund Collein.jpg");
+  background-size: cover;
+  padding-top: 80px;
+  overflow: hidden;
+  line-height: 1.8em;
+  text-align: center;
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+  }
+}
+.oficinas section.hero .row {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  margin: 5% auto;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  padding: 0;
+  border-radius: 30px;
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero .row {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 90%;
+  }
+}
+.oficinas section.hero .row .column {
+  height: 100%;
+  padding: 20px;
+  width: 100%;
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero .row .column:nth-child(1) {
+    width: 50%;
+    margin-left: 20%;
+    border-radius: 5px;
+    position: relative;
+  }
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero .row .column:nth-child(1)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 90%;
+    border-right: 10px solid #b2be1d;
+    transform: translate(0, -50%);
+  }
+}
+.oficinas section.hero .row .column:nth-child(2) {
+  padding: 0;
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero .row .column:nth-child(2) {
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.oficinas section.hero .row .column .img-contenedor {
+  margin: 0 auto;
+  height: 20vh;
+  width: 30vw;
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero .row .column .img-contenedor {
+    height: 14vh;
+    width: 11vw;
+  }
+}
+.oficinas section.hero .row .column .img-contenedor img {
+  object-fit: contain;
+}
+.oficinas section.hero .row .column .img-contenedor.img-mapa {
+  height: 40vh;
+  width: 100%;
+}
+@media only screen and (min-width: 981px) {
+  .oficinas section.hero .row .column .img-contenedor.img-mapa {
+    width: 31vw;
+    height: 28vh;
+  }
+}
+.oficinas section.hero .row .column .img-contenedor.img-mapa img {
+  object-fit: cover;
+}
+.oficinas section.hero .row .column p {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.oficinas section.hero .row .column div.redes-sociales i {
+  display: inline-block;
+  font-size: 16px;
+  padding: 6px 11px;
+  color: white;
+  background: #ee2630;
+}
+
+footer {
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #2e4da8;
+}
+body.inicio footer {
+  padding-top: 0;
+}
+@media all and (min-width: 768px) {
+  footer {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+footer .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+footer .column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media only screen and (min-width: 768px) {
+  footer .column {
+    text-align: right;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  body.inicio footer .column {
+    justify-content: flex-start;
+  }
+}
+footer .column > * {
+  display: inline-block;
+  margin-right: 1em;
+}
+footer .column > *:last-child {
+  margin-right: 0;
+}
+footer .column .redes-sociales {
+  color: #2e4da8;
+}
+footer .column .img-contenedor {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+footer .column .img-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 /*# sourceMappingURL=estilos.css.map */

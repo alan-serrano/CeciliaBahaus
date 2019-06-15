@@ -1,0 +1,612 @@
+/* ---------------- */
+/* PÁGINA INICIO */
+/* ---------------- */
+
+/* Sección Hero */
+
+section.hero{
+    body.inicio &{
+        // overflow-x: hidden;
+        background: url("../img/Bauhaus_Final_2zu1.jpg");
+        background-position: -340px center;
+
+        @media all and (min-width: 1400px){
+            background-position: center center;
+
+        }
+    }
+}
+
+
+/* ---------------- */
+/* PÁGINA ACERCA DE */
+/* ---------------- */
+/* General */
+body.acerca-de{
+    background: url("../img/Bauatelier\ Gropius\,\ Dessau\,\ 1927-1928\ -by\ Edmund\ Collein.jpg");
+    background-attachment: fixed;
+}
+section{
+    body.acerca-de &{
+        margin-bottom: 300px;
+
+        &:first-of-type{
+            margin-bottom: 0;
+        }
+
+    }
+}
+
+/* Sección Hero */
+
+section.hero{
+    body.acerca-de &{
+        text-align: center;
+        // overflow-x: hidden;
+        
+        position: relative;
+        .row{
+            padding-bottom: 175px;
+            position: relative;
+            background: rgba(white, 0.85);
+
+            @media only screnn and (min-width){
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+        }
+
+        .img-contenedor{
+            height: 250px;
+            width: auto;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+
+            img{
+                object-fit: contain;
+                width: auto;
+            }
+            
+        }
+
+        .column{
+            width: 100%;
+            max-width: 500px;
+
+            @media only screen and (min-width: 981px){
+                width: 50%;
+            }
+        }
+    }
+}
+
+/* Sección Nuestra Universidad */
+
+section.nuestra-universidad{
+    
+    .row{
+        padding-top: 40px;
+        padding-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        background: rgba(white, 0.85);
+        
+
+        @media all and (min-width: 981px){
+            padding-left: 120px;
+            flex-direction: row;
+        }
+        
+    }
+
+    .column{
+        &:nth-child(1){
+            width: 100%;
+            
+
+            @media all and (min-width: 981px){
+                width: 40%;
+                order: 2;
+                flex-direction: row;
+            }
+        }
+
+        &:nth-child(2){
+            text-align: center;
+            @media all and (min-width: 981px){
+                text-align: left;
+            }
+        }
+    }
+    .img-contenedor{
+        width: 350px;
+        margin-left: 20px;
+        
+
+    }
+}
+
+/* Sección Nuestro Equipo */
+
+section.equipo{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    background: rgba(white, 0.85);
+
+    .row{
+
+        max-width: 1170px;
+
+        &:nth-child(2){
+            display: flex;
+            flex-wrap: wrap;
+
+            .column{
+                width: auto;
+                height: calc(100vh - 80px);
+                flex-grow: 1;
+                margin-right: 10px;
+                position: relative;
+                overflow: hidden;
+                z-index: 2;
+
+                @media only screen and (min-width: 768px){
+                    justify-content: center;
+                    width: calc(50% - 10px);
+                }
+
+                @media only screen and (min-width: 1100px){
+                    height: auto;
+                    width: calc(20% - 10*3px);
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+                &:nth-child(1){
+                    background: url("../img/pareja.jpg");
+                    background-size: cover;
+                    background-origin: center center;
+                    
+                }
+                &:nth-child(2){
+                    background: url("../img/hombre-1.jpg");
+                    background-size: cover;
+                    background-origin: center center;
+                }
+                &:nth-child(3){
+                    background: url("../img/mujer-1.jpg");
+                    background-size: cover;
+                    background-origin: center center;
+                }
+                &:nth-child(4){
+                    background: url("../img/hombre-2.jpg");
+                    background-size: cover;
+                    background-origin: center center;
+                }
+                &:nth-child(5){
+                    background: url("../img/mujer-2.jpg");
+                    background-size: cover;
+                    background-origin: center center;
+                }
+
+                &:hover{
+                    
+                    .descripcion{
+                        transform: translate(0, 0);
+                    }
+                }
+                .descripcion{
+                    color: white;
+                    transform: translate(0, 100%);
+                    transition: all .5s linear;
+                    width: 100%;
+                    height: 100%;
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background: rgba(#ee2630, 0.5);
+
+                    @media all and (min-width: 1100px){
+                        justify-content: space-between;
+                    }
+
+                    div.redes-sociales{
+                        text-align: center;
+                        i{
+                            display: inline-block;
+                            font-size: 16px;
+                            padding: 6px 11px;
+                            
+                            color: #ee2630;
+                            border-radius: 50%;
+                            background: white;
+                        }
+                    }
+                    
+                }
+                //.descripcion
+            }
+            // .column
+        }
+        // &:nth-child(2)
+    }
+    // .row
+}
+
+/* ---------------- */
+/* Sección lo que somos */
+/* ---------------- */
+
+/* Hero */
+
+section.hero{
+
+    body.lo-que-somos &{
+        background-image: url("../img/Bauhaus-1.jpg");
+
+        
+        position: relative;
+        .row{
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            
+            position: relative;
+            background: rgba(white, 0.85);
+
+            @media only screnn and (min-width){
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+        }
+
+        
+        .column{
+            width: 100%;
+            
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 30px;
+            
+            @media only screen and (min-width: 981px){
+                justify-content: center;
+                width: 60%;
+            }
+
+            &.img-nuestra-historia{
+                display: none;
+                min-height: 40vh;
+                width: 100%;
+                background: url("../img/bauhaus-2.jpg");
+                background-position: center center;
+                background-size: cover;
+
+                @media only screen and (min-width: 981px){
+                    display: block;
+                    width: 40%;
+                }
+            }
+        }//.column
+    }//body.lo-que-somos &
+}
+
+/* Lo que somos */
+
+section.lo-que-somos{
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+
+    .row{
+        padding-top: 40px;
+        flex-direction: column;
+        padding: 0;
+        @media all and (min-width: 981px){
+            padding-left: 40px;
+            padding-right: 40px;
+            flex-direction: row;
+            
+        }
+    }
+
+    .column{
+        padding: 30px;
+        width: 100%;
+        
+        &.video{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: url("../img/bauhaus-libro.jpg");
+            background-size: cover;
+            background-position: center center;
+            min-height: 40vh;
+
+            @media all and (min-width: 981px){
+                width: 60%;
+            }
+            .video{
+                width: 90%;
+                margin: 0 auto;
+
+                @media all and (min-width: 768px){
+                    width: 55%;
+                }
+
+                iframe{
+                    width: 100%;
+                }
+            }
+        }//column.video
+
+        &.texto{
+
+            @media all and (min-width: 981px){
+                width: 40%;
+            }
+        }//&.texto
+        
+
+    }//.column
+}
+
+/* ------------------- */
+/* Sección Contáctanos */
+/* ------------------- */
+
+/* Sección hero */
+
+.contactanos section.hero {
+    min-height: calc(100vh - 80px);
+    background: url("../img/bauhaus-libro.jpg");
+    background-position: center center;
+    background-size: cover;
+    padding-top: 80px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .row {
+        padding: 40px;
+        background: rgba(white, 0.8);
+        display: flex;
+        flex-wrap: wrap;
+        
+
+        @media only screen and (min-width: 981px) {
+            flex-wrap: nowrap;
+        }
+
+
+    }
+
+    .column {
+
+        width: 100%;
+        padding-right: 40px;
+
+        @media only screen and (min-width: 981px) {
+            width: 50%;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        /* mover texto a la derecha */
+        .derecha {
+            text-align: right;
+        }
+
+        /* color y tamaño a todas las propiedas con .tipo-uno */
+        .tipo-uno {
+            color: #555758;
+            font-size: 22px;
+            font-weight: lighter;
+        }
+
+        /* h1 */
+        h1.tipo-uno {
+            font-weight: normal;
+        }
+
+        /* parrafos */
+        p.tipo-uno {
+            margin-bottom: 0;
+        }
+
+        p.tipo-dos {
+            margin-top: 0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        p {
+            font-weight: normal;
+            font-size: 19px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+
+        >* {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 1em;
+            background: #555758;
+            border: 0;
+            color: white;
+
+            &::placeholder {
+                color: white;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+                padding: 0;
+                background: none;
+            }
+        }
+
+        div.btn {
+            text-align: right;
+
+            button {
+                background: #555758;
+                border: 0;
+                color: white;
+                padding: 0.60em;
+                padding-right: 2em;
+                padding-left: 2em;
+            }
+        }
+    }
+
+}
+
+/* --------------- */
+/* pagina oficinas */
+/* --------------- */
+
+/* section hero */
+.oficinas section.hero {
+    min-height: 100vh;
+    background: url("../img/Bauatelier\ Gropius\,\ Dessau\,\ 1927-1928\ -by\ Edmund\ Collein.jpg");
+    background-size: cover;
+    padding-top: 80px;
+    overflow: hidden;
+    line-height: 1.8em;
+    text-align: center;
+    
+
+    @media only screen and (min-width: 981px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: right;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+        margin: 5% auto;
+        width: 90%;
+        background: rgba(white, 0.9);
+        position: relative;
+        padding: 0;
+        border-radius: 30px;
+
+        @media only screen and (min-width: 981px) {
+            flex-wrap: nowrap;
+            flex-direction: row;
+            height: 90%;
+        }
+
+        .column {
+            height: 100%;
+            padding: 20px;
+            width: 100%;
+
+            &:nth-child(1) {
+
+                @media only screen and (min-width: 981px){
+                    width: 50%;
+                    margin-left: 20%;
+                    border-radius: 5px;
+                    position: relative;
+                }
+                
+                &::after {
+
+                    @media only screen and (min-width: 981px) {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        height: 90%;
+                        border-right: 10px solid $borde-2;
+                        transform: translate(0, -50%);
+                    }
+                    
+
+                }
+            }
+
+            &:nth-child(2){
+                padding:0;
+                @media only screen and (min-width: 981px){
+                    padding: 20px;
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                
+            }
+
+            .img-contenedor {
+                margin: 0 auto;
+                height: 20vh;
+                width: 30vw;
+
+                @media only screen and (min-width: 981px){
+                    height: 14vh;
+                    width: 11vw;
+                }
+
+                img {
+                    object-fit: contain;
+                }
+
+
+                &.img-mapa{
+                    height: 40vh;
+                    width: 100%;
+
+                    @media only screen and (min-width: 981px){
+                        width: 31vw;
+                        height: 28vh;
+                    }
+                    
+                    img{
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            p{
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            div.redes-sociales{
+                
+                i{
+                    display: inline-block;
+                    font-size: 16px;
+                    padding: 6px 11px;
+                    
+                    color: white;
+                    background: $back-1;
+                }
+            }//div.redes-sociales
+
+           
+        }
+    }
+}
