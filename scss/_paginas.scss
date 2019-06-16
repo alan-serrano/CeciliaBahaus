@@ -10,13 +10,56 @@ section.hero{
         background: url("../img/Bauhaus_Final_2zu1.jpg");
         background-position: -340px center;
 
+        .slider{
+            overflow: hidden;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .row{
+            width: 600vw;
+            height: 100%;
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            animation: slideInicio 20s infinite 2s;
+            position: relative;
+            z-index: 1;
+            padding: 0;
+
+            .column{
+                width: 100vw;
+
+                &:nth-child(1){
+                    
+                }
+                &:nth-child(2){
+                    background-image: url("../img/slide-2.jpg");
+                }
+                &:nth-child(3){
+                    background-image: url("../img/slide-3.jpg");
+                    
+                }
+                &:nth-child(4){
+                    background-image: url("../img/slide-4.jpg");
+                    
+                }
+                &:nth-child(5){
+                    background-image: url("../img/slide-5.jpg");                    
+                }
+                &:nth-child(6){
+    
+                }
+            }
+
+        }
+
         @media all and (min-width: 1400px){
             background-position: center center;
 
         }
     }
 }
-
 
 /* ---------------- */
 /* PÁGINA ACERCA DE */
@@ -98,6 +141,7 @@ section.nuestra-universidad{
         @media all and (min-width: 981px){
             padding-left: 120px;
             flex-direction: row;
+            flex-wrap: nowrap;
         }
         
     }
@@ -105,6 +149,7 @@ section.nuestra-universidad{
     .column{
         &:nth-child(1){
             width: 100%;
+            
             
 
             @media all and (min-width: 981px){
@@ -123,7 +168,7 @@ section.nuestra-universidad{
     }
     .img-contenedor{
         width: 350px;
-        margin-left: 20px;
+        margin: 0 auto;
         
 
     }
@@ -247,6 +292,7 @@ section.equipo{
 section.hero{
 
     body.lo-que-somos &{
+        color: white;
         background-image: url("../img/Bauhaus-1.jpg");
 
         
@@ -257,7 +303,7 @@ section.hero{
             padding-right: 0;
             
             position: relative;
-            background: rgba(white, 0.85);
+            overflow: hidden;
 
             @media only screnn and (min-width){
                 padding-left: 0;
@@ -275,10 +321,22 @@ section.hero{
             flex-direction: column;
             justify-content: flex-start;
             padding: 30px;
+            position: relative;
+            z-index: 3;
+            background: rgba($back-1, 0.85);
             
             @media only screen and (min-width: 981px){
                 justify-content: center;
                 width: 60%;
+            }
+
+            &:nth-child(1){
+                transition: transform 0.5s linear;
+                &:hover{
+                    transform: scale(1.2);
+                    position: relative;
+                    z-index: 1;
+                }
             }
 
             &.img-nuestra-historia{
@@ -294,7 +352,9 @@ section.hero{
                     width: 40%;
                 }
             }
+
         }//.column
+        
     }//body.lo-que-somos &
 }
 
@@ -306,14 +366,44 @@ section.lo-que-somos{
 
 
     .row{
-        padding-top: 40px;
         flex-direction: column;
-        padding: 0;
+        
+        position: relative;
         @media all and (min-width: 981px){
-            padding-left: 40px;
-            padding-right: 40px;
+            padding: 40px 40px 0 60px;
             flex-direction: row;
             
+        }
+
+        &::before{
+            /* Márgenes */
+            display: none;
+            content: '';
+            height: 100%;
+            position: absolute;
+            width: 22px;
+            top: 0;
+            left: 0;
+            background: $borde-1;
+    
+            @media all and (min-width: 981px){
+                display: block;
+            }
+    
+        }
+        &::after{
+            /* márgenes */
+            display: none;
+            content: '';
+            height: calc(100% + 80px);
+            position: absolute;
+            width: 22px;
+            bottom: -40px;
+            right: 0;
+            background: $borde-1;
+            @media all and (min-width: 981px){
+                display: block;
+            }
         }
     }
 
@@ -357,6 +447,289 @@ section.lo-que-somos{
 
     }//.column
 }
+
+section.noticias{
+    background-image: url("../img/Bauhaus-1.jpg");
+    background-color: rgba($back-1, 0.8);
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    .flecha{
+        position: absolute;
+        font-size: 48px;
+        color: white;
+        z-index: 2;
+
+        
+        &-izquierda {
+            top: 50%;
+            left: 1vw;
+            transform: translate(0, -50%);
+        }
+
+        &-derecha{
+            top: 50%;
+            right: 1vw;
+            transform: translate(0, -50%);
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+
+    }
+
+    .slider{
+        position: relative;
+        overflow: hidden;
+        width: 90vw;
+        margin: 0 auto;
+        .row{
+            display: flex;
+            max-width: none;
+            width: 600%;
+            padding: 0;
+            animation: slideNoticias2 20s infinite;
+
+            @media all and (min-width: 981px){
+                animation: slideNoticias1 20s infinite;
+            }
+        }
+
+        .column{
+            width: 90vw;
+            display: flex;
+            margin: 0;
+
+            @media all and (min-width: 981px){
+                width: 30vw;
+            }
+    
+            >div{
+                width: 50%;
+                flex-grow: 1;
+    
+                &.noticia{
+                    padding: 20px;
+                    background-color: $back-1;
+                    p{
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        h3{
+            display: table;
+            position: relative;
+            padding-bottom: 0.5em;
+            &::after{
+                display: block;
+                content: "";
+                width: 100%;
+                height: 5px;
+                background: white;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+
+    .row{
+        &.titulo{
+            color: white;
+            max-width: none;
+            width: 90%;
+            text-align: right;
+
+            h2{
+                padding-top: 0;
+            }
+        }
+    }
+
+
+    .img-contenedor{
+        img{
+            object-fit: cover;
+        }
+    }
+}
+
+/* ------------------- */
+/* Sección Historia */
+/* ------------------- */
+
+/* hero */
+.historia {
+    
+    section.hero {
+        background-image: url("../img/Bauhaus-1.jpg");
+        background-attachment: fixed;
+        color: white;
+        min-height: 100vh;
+        padding-top: 80px;
+
+        .row {
+            &.historia {
+                padding-left: 40px;
+                padding-right: 20px;
+                display: flex;
+                overflow: hidden;
+
+                @media all and (min-width: 981px) {
+                    background-color: rgba($back-1, 0.8);
+                }
+
+                .column {
+                    position: relative;
+                    transition: transform .5s linear;
+                    &:nth-child(1) {
+                        z-index: 1;
+                        padding: 20px;
+
+                        @media all and (min-width: 981px) {
+                            width: 60%;
+                        }
+
+                    }
+
+                    &:nth-child(2) {
+                        z-index: 0;
+                        @media all and (min-width: 981px) {
+                            width: 40%;
+                        }
+                        &:hover{
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+
+            &:not(.historia) {
+                padding: 40px;
+            }
+        }
+
+        .img-contenedor {
+            height: 100%;
+            max-height: 400px;
+        }
+    }
+}
+
+/* sección creador */
+
+section.creador{
+    margin-top: 40px;
+
+    > .row{
+        padding-top: 40px;
+        max-width: 1080px;
+        width: 100%;
+        background: white;
+        position: relative;
+
+        @media all and (min-width: 768px){
+            width: 80%;
+        }
+
+        &::before{
+            /* Márgenes */
+            display: none;
+            content: '';
+            height: 100%;
+            position: absolute;
+            width: 22px;
+            top: 0;
+            left: 0;
+            background: $borde-1;
+
+            @media all and (min-width: 981px){
+                display: block;
+            }
+
+        }
+        &::after{
+            /* márgenes */
+            display: none;
+            content: '';
+            height: 80%;
+            position: absolute;
+            width: 22px;
+            bottom: 0;
+            right: 0;
+            background: $borde-1;
+            @media all and (min-width: 981px){
+                display: block;
+            }
+        }
+
+        .column{
+            &:nth-child(1){
+                @media all and (min-width: 981px){
+                    width: 20%;
+                }
+            }
+            
+            &:nth-child(2){
+                @media all and (min-width: 981px){
+                    width: 80%;
+                }
+            }
+        }
+        .row{
+            padding: 0;
+            @media all and (min-width: 981px){
+                padding: 1em;
+            }
+
+            &:nth-child(1){
+                display: block;
+                .img-contenedor{
+                    margin-right: 1em;
+
+                    @media all and (min-width: 768px){
+                        float: left;
+
+                    }
+                }
+
+                .redes-sociales{
+                    clear: both;
+                }
+
+            }
+
+            &:nth-child(2){
+                >*{
+                    @media all and (min-width: 981px){
+                        width: 50%;
+                    }
+                }
+            }
+        }
+
+    }//>.row
+    .redes-sociales{
+        color: white;
+        i{
+            background: $back-2;
+        }
+    }
+}
+
+/* Sección con background */
+
+section.back-1{
+    background-image: url("../img/Bauhaus-1.jpg");
+    background-attachment: fixed;
+    min-height: 250px;
+}
+
 
 /* ------------------- */
 /* Sección Contáctanos */
@@ -538,7 +911,7 @@ section.lo-que-somos{
                         top: 50%;
                         right: 0;
                         height: 90%;
-                        border-right: 10px solid $borde-2;
+                        border-right: 14px solid $borde-3;
                         transform: translate(0, -50%);
                     }
                     
@@ -592,10 +965,22 @@ section.lo-que-somos{
             p{
                 max-width: 400px;
                 margin: 0 auto;
+                &.texto{
+                    font-size: 24px;
+                    letter-spacing: 2px;
+                    font-weight: lighter;
+                    font-family: 'Quicksand';
+                    
+                    
+                }
+                &.horario{
+                    font-weight: bold;
+                    margin-bottom: 1em;
+                }
             }
 
             div.redes-sociales{
-                
+                margin: 1em 0;
                 i{
                     display: inline-block;
                     font-size: 16px;

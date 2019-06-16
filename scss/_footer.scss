@@ -1,3 +1,4 @@
+
 footer{
     color: white;
     padding-top: 30px;
@@ -6,6 +7,12 @@ footer{
 
     body.inicio &{
         padding-top: 0;
+    }
+
+    body.lo-que-somos &{
+        background-image: url("../img/Bauhaus-1.jpg");
+        background-attachment: fixed;
+        background-blend-mode: multiply;
     }
 
     @media all and (min-width: 768px) {
@@ -48,7 +55,9 @@ footer{
         }
 
         .redes-sociales{
-            color: $back-2;
+            a{
+                color: $back-2;
+            }
         }
 
         .img-contenedor {

@@ -13,16 +13,19 @@ html {
     -moz-box-sizing: inherit;
     box-sizing: inherit;
 }
-
+/* --------- */
 /* Generales */
+/* --------- */
 
 $titulo: #cdb16c;
 $borde-1: #dda711;
 $borde-2: #b2be1d;
+$borde-3: #c3ad19;
+
 
 $back-1: #ee2630;
 $back-2: #2e4da8;
-
+/* Encabezados y párrafos */
 body{
     line-height: 1.5;
     color: #555758;
@@ -32,13 +35,21 @@ body{
         padding-bottom: 1em;
         font-weight: normal;
         font-size: 24px;
+        font-family: 'Quicksand';
+
+        &.titulo{
+            color: $titulo;
+        }
     }
+
+    font-family: 'Phagspa';
 }
 
 section{
     position: relative;
 }
 
+/* Separador para hero de páginas */
 .separador{
     &-superior {
         width: 100%;
@@ -46,15 +57,14 @@ section{
         position: absolute;
         top: 0;
         left: 0;
-
+        z-index: 2;
         &::after {
             /* Oculto en el móvil */
             content: "";
             display: none;
             height: 0;
-            z-index: 0;
-
-
+            
+            /* Se utiliza los bordes para darle una forma de triángulo  */
             border-top: 70px solid $back-1;
             border-bottom: 70px solid transparent;
             border-right: 50vw solid $back-1;
@@ -74,19 +84,18 @@ section{
         position: absolute;
         bottom: 0;
         left: 0;
+        z-index: 2;
 
         &::after {
             /* Oculto en el móvil */
             content: "";
             display: none;
-            
             height: 0;
             z-index: 0;
             border-top: 70px solid transparent;
             border-bottom: 70px solid $back-2;
             border-right: 50vw solid transparent;
             border-left: 50vw solid $back-2;
-
 
             @media only screen and (min-width: 1100px) {
                 display: block;
@@ -97,6 +106,7 @@ section{
     }
 }
 
+/* estilos a todas las clases que tengan row */
 .row{
     margin: 0 auto;
     max-width: 1170px;
@@ -105,6 +115,9 @@ section{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    @media all and (min-width: 981px){
+        flex-wrap: nowrap;
+    }
     
 
     .column{
@@ -121,6 +134,7 @@ section{
     padding-right: 40px;
 
 }
+
 .hero{
     min-height: 100vh;
     display: flex;
@@ -132,6 +146,7 @@ section{
     background-size: cover;
 }
 
+/* Estilos para contenedor de imágenes */
 .img-contenedor{
     max-width: 100%;
     margin: 0 auto;
@@ -145,6 +160,9 @@ section{
 
 /* redes-sociales */
 .redes-sociales{
+    a{
+        color: inherit;
+    }
     
     i{
         width: 37px;
@@ -180,13 +198,13 @@ section{
 div.btn{
     a.btn{
         color: white;
-        background: $borde-2;
+        background: $borde-3;
         display: inline-block;
         padding: 10px 15px;
         border-radius: 5px;
         transition: .5s;
         text-decoration: none;
-        border: 1px solid $borde-2;
+        border: 1px solid $borde-3;
 
         &:hover{
             color: $borde-2;
@@ -198,5 +216,6 @@ div.btn{
 
 
 @import "menu";
-@import "page-acerca-de";
+@import "animaciones";
+@import "paginas";
 @import "footer";

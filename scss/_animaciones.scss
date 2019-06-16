@@ -1,0 +1,80 @@
+/* ----------- */
+/* Animaciones */
+/* ----------- */
+
+@keyframes slideInicio{
+    0%{
+        transform: translate(0, 0);
+
+    }
+
+    20%{
+        transform: translate(-100vw, 0);
+    }
+
+    40%{
+        transform: translate(-200vw, 0);
+
+    }
+
+    60%{
+        transform: translate(-300vw, 0);
+    }
+
+    80%{
+        transform: translate(-400vw, 0);
+    }
+
+    100%{
+        transform: translate(-500vw, 0);
+    }
+}
+
+@keyframes slideNoticias1{
+    0%{
+        transform: translate(0, 0);
+
+    }
+
+    33%{
+        transform: translate(-30vw, 0);
+    }
+
+    66%{
+        transform: translate(-60vw, 0);
+
+    }
+
+    100%{
+        transform: translate(-90vw, 0);
+    }
+
+}
+@keyframes slideNoticias2{
+    0%{
+        transform: translate(0, 0);
+
+    }
+
+    20%{
+        transform: translate(-90vw, 0);
+    }
+
+    40%{
+        transform: translate(-180vw, 0);
+
+    }
+
+    60%{
+        transform: translate(-270vw, 0);
+    }
+
+    80%{
+        transform: translate(-360vw, 0);
+    }
+
+    100%{
+        transform: translate(-450vw, 0);
+    }
+
+}
